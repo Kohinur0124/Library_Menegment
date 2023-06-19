@@ -6,34 +6,35 @@ using System.Threading.Tasks;
 
 namespace Library_Menegment
 {
-    public  class LibraryManagementCore
+    public class LibraryManagement : LibraryManagementCore
     {
-        public LibraryStore Store { get; set; }
+        public void RegisterUser(string firstname, string lastname)
+        {
 
-        public LibraryManagementCore()
-        {
-            Store = new LibraryStore();
         }
-        public LibraryManagementCore( List <Book> books , List <User> users)
+        public void RegisterUser(string firstname, string lastname,string username)
         {
-            Store = new LibraryStore(books,users);
+            var founduser = false;
+            foreach (var user in Store.Users)
+            {
+                if (user.UserName == username)
+                {
+                    founduser = true;
+                    break;
+
+                }
+
+            }
+            if (founduser)
+            {
+                return;
+            }
+            Store.Users.Add(new User(firstname, lastname, username));
             
         }
-        public void DisplayAllUsers() 
-        {
+
         
-            foreach (User user in Store.Users)
-            {
-                Console.WriteLine(user.ToString());
-            }
-        }
-        public void DisplayAllBooks() 
-        {
-            foreach (Book book in Store.Books)
-            {
-                Console.WriteLine(book.ToString());
-            }
-        }
+
 
     }
 }
