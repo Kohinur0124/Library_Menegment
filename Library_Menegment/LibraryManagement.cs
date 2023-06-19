@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Menegment
 {
-    public abstract class LibraryManagementCore
+    public  class LibraryManagementCore
     {
         public LibraryStore Store { get; set; }
 
@@ -19,7 +19,8 @@ namespace Library_Menegment
             Store = new LibraryStore(books,users);
             
         }
-        public void DisplayAllUsers() {
+        public void DisplayAllUsers() 
+        {
         
             foreach (User user in Store.Users)
             {

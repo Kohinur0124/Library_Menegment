@@ -5,6 +5,11 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+            var LibraryManagement = new LibraryManagementCore(DataSource.Books, DataSource.Users);
+            LibraryManagement.DisplayAllUsers();
+            LibraryManagement.DisplayAllBooks();
+
+            
         }
     }
 }
